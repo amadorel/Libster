@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - LibsterFinalProj</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/LibsterFinalProj.styles.css" asp-append-version="true" />
 </head>
@@ -23,6 +24,28 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+            
+                        <!--The below block was created using Copilot to add user authentication links to the navbar and include references to UI pages for user management.-->
+                        @if (User.Identity.IsAuthenticated == true)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index">Hello, @User.Identity.Name!</a>
+                            </li>
+                            <li class="nav-item">
+                                <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" method="post" class="form-inline">
+                                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
@@ -33,8 +56,10 @@
     </header>
     <div class="container">
          <div class='controls'>
-            <img src='media/textup.png' alt='increase text size' id="fontUp" class="textSizeControl">
-            <img src='media/textdown.png' alt='decrease text size' id="fontDown" class="textSizeControl">
+            <h1>Adjust Font Size</h1>
+            <button id="fontUp" class="textSizeControl" alt="increase font size"><i class ="bi bi-plus-circle"></i></button>
+            <button id="fontDown" class="textSizeControl" alt="decrease font size"><i class ="bi bi-dash-circle"></i></button>
+            <button id="fontReset" class="textSizeControl" alt="reset font size"><i class ="bi bi-arrow-counterclockwise"></i></button>
         </div>
         <main role="main" class="pb-3">
             @RenderBody()

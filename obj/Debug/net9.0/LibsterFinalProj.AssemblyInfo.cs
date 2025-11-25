@@ -10,11 +10,12 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("e9ae6838-1374-426a-8ee5-5c749ccb51d5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibsterFinalProj")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64128c0754c0b3b46f1dff53fff773642b49fad2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+636885ed045271448a01fa4ad4489e8c2e9f49a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibsterFinalProj")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibsterFinalProj")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
