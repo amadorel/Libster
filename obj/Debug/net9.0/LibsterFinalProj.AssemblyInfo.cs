@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibsterFinalProj")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50f9c7d583355e07cb33c6fd2c40fa2aa538c690")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90b39280c011670981219e3da3283a6ca7658833")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibsterFinalProj")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibsterFinalProj")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

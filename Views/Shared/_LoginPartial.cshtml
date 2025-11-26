@@ -1,4 +1,5 @@
 @using Microsoft.AspNetCore.Identity
+@inject IApplicationUserRepository userRepo; 
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
@@ -6,8 +7,10 @@
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
+    ApplicationUser? user = await userRepo.ReadByUserNameAsync(User.Identity?.Name!);
+    string userFirstName = $"{user?.FirstName}"; 
     <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello, @userFirstName !</a>
     </li>
     <li class="nav-item">
         <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

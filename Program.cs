@@ -4,9 +4,12 @@ using Microsoft.EntityFrameworkCore.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI; 
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore; 
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IApplicationUserRepository, DbUserRepository>(); 
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

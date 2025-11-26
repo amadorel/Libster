@@ -11,7 +11,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
   public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
   {}
    
-  //DBset for each entity - other than users, IdentityUser will handle this
+  //DBset for each entity - other than users, Identity will handle this
   public DbSet<Book>? Books {get; set;}
   public DbSet<Author>? Authors {get; set; }  
   public DbSet<BookList>? BookLists {get; set; }  
