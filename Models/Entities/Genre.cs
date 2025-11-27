@@ -1,0 +1,35 @@
+namespace LibsterFinalProj.Models.Entities;
+
+public enum Genre
+{
+  Fantasy,
+  ScienceFiction,
+  Mystery,
+  Thriller,
+  Romance,
+  Horror,
+  HistoricalFiction,
+ YoungAdult,
+  Childrens,
+  Adventure,
+  Contemporary,
+  LiteraryFiction,
+  Dystopian,
+  Paranormal,
+  Crime,
+  Biography,
+  Autobiography,
+  Memoir,
+  SelfHelp,
+  Philosophy,
+  Psychology,
+  Science,
+  History,
+  Poetry,
+  GraphicNovel,
+  Humour,
+  Spirituality,
+  Business,
+  Travel, 
+  Legal
+}

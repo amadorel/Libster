@@ -8,6 +8,7 @@
 @if (SignInManager.IsSignedIn(User))
 {
     ApplicationUser? user = await userRepo.ReadByUserNameAsync(User.Identity?.Name!);
+    Console.WriteLine(user);  
     string userFirstName = $"{user?.FirstName}"; 
     <li class="nav-item">
         <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello, @userFirstName !</a>

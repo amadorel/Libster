@@ -92,10 +92,9 @@ namespace LibsterFinalProj.Areas.Identity.Pages.Account
             
             [Required]
             [Display(Name = "First Name")]
-            public string FirstName { get; set; } = String.Empty;
-            
+            public string FirstName { get; set; } 
             [Display(Name = "Last Name")]
-            public string LastName { get; set; } = String.Empty;
+            public string LastName { get; set; } 
 
             [Display(Name = "Profile Picture")]
             public IFormFile ProfilePicture { get; set; } 
@@ -124,6 +123,8 @@ namespace LibsterFinalProj.Areas.Identity.Pages.Account
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
 
                 if (result.Succeeded)
                 {

@@ -12,9 +12,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
   {}
    
   //DBset for each entity - other than users, Identity will handle this
-  public DbSet<Book>? Books {get; set;}
+  public DbSet<Book> Books {get; set;}
   public DbSet<Author>? Authors {get; set; }  
-  public DbSet<BookList>? BookLists {get; set; }  
+  public DbSet<BookList> BookLists {get; set; }  
 
 }
 

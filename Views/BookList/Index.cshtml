@@ -2,4 +2,13 @@
   ViewData[index: "Title"] = "Book Lists"; 
 }
 
-<h1>Your book lists ☆ </h1> 
+
+<!-- If user is not logged in, direct them to register or login to view booklists--> 
+@if (!User.Identity?.IsAuthenticated ?? true) {
+  <h1>Welcome to Libster! 📚</h1>
+  <p>It looks like you are not currently logged in! 
+      Please <a asp-area="Identity" asp-page="/Account/Register">register</a> for an account or <a asp-area="Identity" asp-page="/Account/Login"> login</a> to view your book lists!
+  </p>
+} else { <!-- Continue below with logic to view user booklists -->
+  <h1>Your book lists ☆ </h1> //Simply testing for now 
+}
