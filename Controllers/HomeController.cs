@@ -7,10 +7,12 @@ namespace LibsterFinalProj.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IApplicationUserRepository _userRepo;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(IApplicationUserRepository userRepo, ILogger<HomeController> logger)
     {
         _logger = logger;
+        _userRepo = userRepo; 
     }
 
     public IActionResult Index()

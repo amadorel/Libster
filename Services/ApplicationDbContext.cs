@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
 
 namespace LibsterFinalProj.Services; 
 
-public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole, string> {
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser> {
   
   public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
   {}

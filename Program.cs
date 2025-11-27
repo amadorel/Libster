@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IApplicationUserRepository, DbUserRepository>(); 
+builder.Services.AddScoped<IApplicationUserRepository, DbApplicationUserRepository>(); 
 builder.Services.AddScoped<IBookRepository, DbBookRepository>();
 builder.Services.AddScoped<IBookListRepository, DbBookListRepository>();
 
