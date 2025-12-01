@@ -1,8 +1,31 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Libster Home Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+    .myButton {
+      background-color: paleturquoise;
+    }
+    .myButton:hover {
+      background-color: palegoldenrod; 
+    }
+    </style>
+</head>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to Libster</h1>
+    <p>Your at-home cataloging adventure starts here! <br /> Register for an account to get started!  </p>
+
+    <!-- Inclusion of registration form below -->
+    <button class="btn btn-primary myButton"><a href="/Identity/Account/Register">Register now! 📚</a></button>
+    <br /><br /> 
+    <p>View plans for future development & updates below</p>
+    <button class="btn btn-primary myButton"><a href="/Home/DevLog">Development Changes</a></button>
 </div>
+<!-- Inclusion of Boostrap -->
+  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

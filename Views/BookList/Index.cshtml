@@ -1,8 +1,6 @@
 @{
   ViewData[index: "Title"] = "Book Lists"; 
 }
-
-
 <!-- If user is not logged in, direct them to register or login to view booklists--> 
 @if (!User.Identity?.IsAuthenticated ?? true) {
   <h1>Welcome to Libster! 📚</h1>
