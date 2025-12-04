@@ -4,7 +4,7 @@ namespace LibsterFinalProj.Controllers;
 
 public class BookListController : Controller
 {
-  public IActionResult Index()
+  public IActionResult BookLists()
   {
     return View();
   }

@@ -2,6 +2,7 @@ using LibsterFinalProj.Models.Entities;
 using LibsterFinalProj.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 namespace LibsterFinalProj.Controllers; 
 
@@ -24,13 +25,13 @@ public class LibsterAPIController : ControllerBase
   }
 
   //GET: ALL BOOKS in user's catalog
-  [HttpGet("books/catalog")]
+  [HttpGet("book/catalog")]
   public async Task<IActionResult> Get()
   {
     return Ok( await _bookRepo.ReadAllAsync());
   }
 
-  [HttpGet("books/{id}")] 
+  [HttpGet("book/{id}")] 
   public async Task<IActionResult> Get(int id)
   {
     var book = await _bookRepo.ReadByIdAsync(id);
@@ -43,5 +44,5 @@ public class LibsterAPIController : ControllerBase
       return Ok(book);
     }
   }
-
+ 
 }

@@ -37,7 +37,6 @@ public class DbBookRepository : IBookRepository
       bookToUpdate.Genre = updatedBook.Genre;
       bookToUpdate.PublicationYear = updatedBook.PublicationYear;
       bookToUpdate.ISBN = updatedBook.ISBN;
-      bookToUpdate.CoverImage = updatedBook.CoverImage;
       await _db.SaveChangesAsync();
     }
     else 

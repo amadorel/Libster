@@ -1,0 +1,85 @@
+@using LibsterFinalProj.Models.Entities
+@using LibsterFinalProj.Models 
+@using Microsoft.CodeAnalysis.Elfie.Diagnostics
+<!-- This will be pulled in by the Book Creation page to display a modal for creation 
+Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/
+--> 
+<style> 
+  button #btnForISBNLookup {
+    padding:5px; 
+  }
+
+  .bi-plus-circle {
+    align-items: right; 
+  }
+</style>
+
+@functions {
+  //Takes in enumValue - a value from the Genre enum 
+  //Utilizes regex to split values and return them in a separated string 
+  public static string SplitEnumText(string enumValue){ 
+    return System.Text.RegularExpressions.Regex
+      .Replace(enumValue, "([a-z])([A-Z])", "$1 $2"); 
+  }
+}
+
+
+<div class="modal fade" id="createBookModal" tabindex="-1" aria-labelledby="createBookModalLabel"> 
+  <div class="modal-dialog modal-lg"> 
+    <div class="modal-content"> 
+
+      <div class="modal-header"> 
+        <h5 class="modal-title">Create Book</h5>
+      </div>
+      <div class="modal-body">
+          <!--ISBN lookup section --> 
+            <label for="ISBNLookup" class="form-label">Lookup Book by ISBN - *IN DEVELOPMENT*</label>
+            <div class="input"> 
+              <input type="text" id="ISBNLookup" class="form-control" placeholder="Enter an ISBN"> 
+              <hr /> 
+              <button class="btn btn-primary" id="btnForISBNLookup">Search!</>
+            </div>
+          <hr /> 
+          <!-- Manual entry --> 
+          <form id="createBookForm">
+              <div class="mb-3"> 
+              <p>OR manually enter a book below:</p>
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control" id="bookTitle" name="Title" /> 
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Authors</label>
+                <div id="addAuthorsContainer"> 
+
+                  <input type="text" name="Authors[0].FullName" class="form-control addAuthor" placeholder="Author Name"/> 
+                  <button type="button" class="btn btn-primary bi-plus-circle" id="addAuthorButton">Add Author</button>
+                </div>
+              </div>
+              <div class="mb-3">
+              <!--for genre--> 
+                <label class="form-label">Select Genre</label>
+                <select id="Genre" name="Genre" class="form-control">
+                @foreach (Genre genre in Enum.GetValues(typeof(Genre)))
+                {
+                  <option value="@genre">@SplitEnumText(genre.ToString())</option>
+                }
+              </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Publication Year</label>
+                <input type="text" class="form-control" id="pubYear" name="PublicationYear" /> 
+              </div>
+              <div class="mb-3">
+                <label class="form-label">ISBN</label>
+                <input type="text" class="form-control" id="ISBNInput" name="ISBN" /> 
+              </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="saveBook">Add Book to Catalog</button>
+      </div>
+
+    </div>
+  </div>
+</div>

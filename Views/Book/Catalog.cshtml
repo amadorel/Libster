@@ -1,0 +1,72 @@
+@using LibsterFinalProj.Services; 
+@using LibsterFinalProj.Models.Entities; 
+@inject IApplicationUserRepository userRepo; 
+@model IEnumerable<BookDetailsVM>
+<!-- Modal for Creating a Book --> 
+@await Html.PartialAsync("_CreateBookModal")
+
+@{
+    ViewData["Title"] = "Catalog";
+    ApplicationUser? user = await userRepo.ReadByUserNameAsync(User.Identity?.Name!);
+    Console.WriteLine(user);  
+    string userFirstName = $"{user?.FirstName}"; 
+}
+
+@if (!User.Identity?.IsAuthenticated ?? true) {
+  <h1>Welcome to Libster! 📚</h1>
+  <p>It looks like you are not currently logged in! 
+      Please <a asp-area="Identity" asp-page="/Account/Register">register</a> for an account or <a asp-area="Identity" asp-page="/Account/Login"> login</a> to view or start making a catalog!
+  </p>
+} else { <!-- Continue below with logic to view user booklists -->
+  <h1>@userFirstName's Catalog</h1>
+  <p>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#createBookModal">Create New</a>
+  </p>
+  <table class="table">
+      <thead>
+          <tr>
+              <th>
+                  @Html.DisplayNameFor(model => model.Title)
+              </th>
+              <th>
+                  @Html.DisplayNameFor(model => model.Genre)
+              </th>
+              <th>
+                  @Html.DisplayNameFor(model => model.PublicationYear)
+              </th>
+              <th>
+                  @Html.DisplayNameFor(model => model.ISBN)
+              </th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+  @foreach (var item in Model) {
+          <tr>
+              <td>
+                  @Html.DisplayFor(modelItem => item.Title)
+              </td>
+              <td>
+                  @Html.DisplayFor(modelItem => item.Genre)
+              </td>
+              <td>
+                  @Html.DisplayFor(modelItem => item.PublicationYear)
+              </td>
+              <td>
+                  @Html.DisplayFor(modelItem => item.ISBN)
+              </td>
+              <td>
+                  @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                  @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                  @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                  @Html.ActionLink("Check Out", actionName: "CheckOut", new { /* id=item.PrimaryKey */ })
+              </td>
+          </tr>
+  }
+      </tbody>
+  </table>
+
+  @section Scripts {
+    
+  }
+}

@@ -35,7 +35,6 @@ public class DbBookListRepository : IBookListRepository
             bookListToUpdate.ListTitle = bookList.ListTitle;
             bookListToUpdate.ListDescription = bookList.ListDescription;
             bookListToUpdate.BooksInList = bookList.BooksInList;
-            bookListToUpdate.BookListCoverImage = bookList.BookListCoverImage;
 
             await _db.SaveChangesAsync();
         }

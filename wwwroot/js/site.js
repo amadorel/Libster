@@ -14,7 +14,7 @@ const fontUp = document.getElementById("fontUp");
       fontReset = document.getElementById("fontReset");
       
       fontMinimum = 12 //px units
-      fontMaximum = 32; //in px units
+      fontMaximum = 26; //in px units
       fontDefault = 16; //in px units 
       fontSizeChange = 1 //in px units 
 

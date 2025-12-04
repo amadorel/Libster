@@ -10,6 +10,7 @@ public class BookList
    public ApplicationUser ListOwner {get; set;} = new ApplicationUser();
    public string UserId {get; set;} = ""; //From IdentityUser
    public List<Book> BooksInList = new List<Book>();
-   public byte[]? BookListCoverImage {get; set;}
+
+   //public byte[]? BookListCoverImage {get; set;} To be used at a later date
    
 }
