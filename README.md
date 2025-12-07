@@ -10,10 +10,10 @@ Libster provides users (particularly the developer...) the ability to track thei
 {INSERT PROPOSAL}
 
 <h3>Future Development:</h3>
-<li>
-<ol>Implement usage of Google Books API to allow users to create books from ISBN queries</ol>
-<ol>Further develop check-out functionality so user's can keep track of books they've loaned out</ol> 
-</li> 
+<ol>
+<li>Implement usage of Google Books API to allow users to create books from ISBN queries</li>
+<li>Further develop check-out functionality so user's can keep track of books they've loaned out</li> 
+</ol> 
 
 <h3>AI Disclosure</h3>
 Any usage of AI tools or external resources were noted in-line where necessary. 
