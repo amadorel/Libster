@@ -25,6 +25,8 @@ public class HomeController : Controller
         return View();
     }
 
+    
+
     public IActionResult DevLog()
   {
     return View(); 

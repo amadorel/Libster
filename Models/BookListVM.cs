@@ -8,7 +8,6 @@ public class BookListVM
 {
     public int Id {get; set;}
     public string ListTitle {get; set;} = ""; 
-
     public string ListDescription {get; set;} = ""; 
     public int NumberOfBooks {get; set;} //Should be updated dynamically (later...)
 }

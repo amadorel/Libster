@@ -1,9 +1,10 @@
 @using LibsterFinalProj.Services; 
 @using LibsterFinalProj.Models.Entities; 
+@using System.Net
 @inject IApplicationUserRepository userRepo; 
 @model IEnumerable<BookDetailsVM>
 <!-- Modal for Creating a Book --> 
-@await Html.PartialAsync("_CreateBookModal")
+@Html.Partial("_CreateBookModal", new BookDetailsVM()) 
 
 @{
     ViewData["Title"] = "Catalog";
@@ -32,6 +33,9 @@
                   @Html.DisplayNameFor(model => model.Genre)
               </th>
               <th>
+                  Authors
+              </th>
+              <th>
                   @Html.DisplayNameFor(model => model.PublicationYear)
               </th>
               <th>
@@ -50,7 +54,9 @@
                   @Html.DisplayFor(modelItem => item.Genre)
               </td>
               <td> 
-                  @Html.DisplayFor(modelItem => item.Authors) 
+                  @foreach (var author in item.Authors){
+                      @author.FullName <br /> 
+                  }
               </td>
               <td>
                   @Html.DisplayFor(modelItem => item.PublicationYear)
@@ -68,7 +74,7 @@
   }
       </tbody>
   </table>
-
+  <partial name="_CreateBookModal" model='new BookDetailsVM()' />
   @section Scripts {
     
   }

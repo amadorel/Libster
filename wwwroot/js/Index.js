@@ -5,28 +5,34 @@ import { BookAJAXRepository } from "./BookAJAXRepository.js";
 main(); 
 
 function main() { 
-  const bookRepo = new BookAJAXRepository('Book/Catalog'); 
+  const bookRepo = new BookAJAXRepository(''); 
   const mdom = new DOMManipulator();
 
   
   setUpEventHandlers(bookRepo); 
 }
 
-
 async function setUpEventHandlers(bookRepo) {
-    const bookForm = document.getElementById('createBookForm'); 
+    //const bookForm = document.getElementById('createBookForm'); 
 
-    bookForm.addEventListener("submit", async (e) => { e.preventDefault(); 
+    const saveBookButton = document.getElementById('saveBook'); 
+
+    saveBookButton.addEventListener("click", async (e) => { 
+      console.log("Clicked!")
+     // e.preventDefault(); 
+
       const authors = Array.from(document.querySelectorAll('.addAuthor'))
         .map(input => ({ FullName: input.value})); 
 
       const formData = {
-        Title: document.getElementsByClassName('bookTitle').value, 
+        Title: document.getElementById('bookTitle').value, 
         Authors: authors,
         Genre: document.getElementById('Genre').value, 
         PublicationYear: document.getElementById('pubYear').value, 
         ISBN: document.getElementById('ISBNInput').value 
       }; 
+
+      console.log("Payload from formData:", JSON.stringify(formData)); 
 
       const result = await bookRepo.create(formData); 
       
@@ -45,5 +51,4 @@ async function setUpEventHandlers(bookRepo) {
       DOMManipulator.createAuthorForBookForm(authorIndex); 
       authorIndex++;
      });
-    
-}
+  }

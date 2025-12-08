@@ -1,5 +1,6 @@
 @using LibsterFinalProj.Models.Entities
 @using LibsterFinalProj.Models 
+@model BookDetailsVM; 
 <!-- This will be pulled in by the Book Creation page to display a modal for creation at Book/Create
 Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/
 --> 
@@ -19,14 +20,14 @@ Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/
   public static string SplitEnumText(string enumValue){ 
     return System.Text.RegularExpressions.Regex
       .Replace(enumValue, "([a-z])([A-Z])", "$1 $2"); 
-  }
+    }
 }
+
 
 <body>
 <div class="modal fade" id="createBookModal" tabindex="-1" aria-labelledby="createBookModalLabel"> 
   <div class="modal-dialog modal-lg"> 
     <div class="modal-content"> 
-
       <div class="modal-header"> 
         <h5 class="modal-title">Create Book</h5>
       </div>
@@ -40,11 +41,11 @@ Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/
             </div>
           <hr /> 
           <!-- Manual entry --> 
-          <form id="createBookForm">
+          <form id="createBookForm" method="post" action="/Book/create">
               <div class="mb-3"> 
               <p>OR manually enter a book below:</p>
-                <label class="form-label">Title</label>
-                <input type="text" class="form-control" id="bookTitle" name="Title" /> 
+                <label asp-for="Title" class="form-label">Title</label>
+                <input asp-for="Title" type="text" id="bookTitle" class="form-control" name="Title" /> 
               </div>
               <div class="mb-3">
                 <label class="form-label">Authors</label>
@@ -55,8 +56,8 @@ Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/
               </div>
               <div class="mb-3">
               <!--for genre--> 
-                <label class="form-label">Select Genre</label>
-                <select id="Genre" name="Genre" class="form-control">
+                <label asp-for="Genre" class="form-label">Select Genre</label>
+                <select asp-for="Genre" id="Genre" name="Genre" class="form-control">
                 @foreach (Genre genre in Enum.GetValues(typeof(Genre)))
                 {
                   <option value="@genre">@SplitEnumText(genre.ToString())</option>
@@ -64,24 +65,20 @@ Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/
               </select>
               </div>
               <div class="mb-3">
-                <label class="form-label">Publication Year</label>
-                <input type="text" class="form-control" id="pubYear" name="PublicationYear" /> 
+                <label asp-for="PublicationYear" class="form-label">Publication Year</label>
+                <input asp-for="PublicationYear" type="text" class="form-control" id="pubYear" name="PublicationYear" /> 
               </div>
               <div class="mb-3">
-                <label class="form-label">ISBN</label>
-                <input type="text" class="form-control" id="ISBNInput" name="ISBN" /> 
+                <label asp-for="ISBN" class="form-label">ISBN</label>
+                <input asp-for="ISBN" type="text" class="form-control" id="ISBNInput" name="ISBN" /> 
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-               <button type="submit" class="btn btn-primary" id="saveBook">Add Book to Catalog</button>
+               <button type="button" class="btn btn-primary" id="saveBook">Add Book to Catalog</button>
               </div>
           </form>
-      </div>
+      </div> 
     </div>
   </div>
 </div>
-@section Scripts {
-  <script defer type="module" src="~/js/DOMManipulator.js"></script>
-  <script defer type="module" src="~/js/Index.js"></script>
-}
 </body>

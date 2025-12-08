@@ -59,9 +59,11 @@ namespace LibsterFinalProj.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Phone Number")]
             public string PhoneNumber { get; set; }
 
+            [Required]
             [Display(Name = "First Name")]
             public string FirstName {get; set;}
 
+            [Required]
             [Display(Name = "Last Name")]
             public string LastName {get; set;}
         }

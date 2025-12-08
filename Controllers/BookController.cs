@@ -25,7 +25,7 @@ public class BookController : Controller
             Title = book.Title,
             PublicationYear = book.PublicationYear,
             Genre = book.Genre, 
-            Authors = book.Authors.Select(a => new AuthorInfoVM { }).ToList(), 
+            Authors = book.Authors.Select(a => new AuthorInfoVM {}).ToList(), 
             ISBN = book.ISBN 
           }; 
           NewBookDetailsVM.Add(newBookVM); 
@@ -33,13 +33,8 @@ public class BookController : Controller
         return View(NewBookDetailsVM);
   }
 
-  public async Task<IActionResult> Create()
-  {
-    return RedirectToAction("Catalog");  
-  }
-
   //Take this and process the creation of the books...remember you also need to handle API logic
-  [HttpPost("create")]
+  [HttpPost("create-book")]
   public async Task<IActionResult> Create([FromBody] BookDetailsVM model) {
     
         Book book = new Book

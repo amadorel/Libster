@@ -15,7 +15,7 @@ export class BookAJAXRepository {
   }
 
     async read(id) {
-    const address = `${this.#baseAddress}/book/${id}`; 
+    const address = `${this.#baseAddress}/Book/${id}`; 
     const response = await fetch(address); 
     if (response.ok === false) {
       throw new Error("There was an HTTP error getting book data"); 
@@ -23,7 +23,7 @@ export class BookAJAXRepository {
   } 
 
   async create(formData) {
-    const address = `${this.#baseAddress}/create`;
+    const address = `${this.#baseAddress}/Book/create-book`
     const response = await fetch(address, {
       method: "post",
       headers: {
