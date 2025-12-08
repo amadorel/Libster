@@ -7,12 +7,13 @@ Libster is a personal book cataloging web-application that utilizes the .NET MVC
 Libster provides users (particularly the developer...) the ability to track their home library collections! Long-term, Libster will provide users with the ability to create a catalog of books and create custom "playlists" to group books by themes or by metrics of personal choosing! Be on the lookout for more developments in the future. 
 
 <h3>Project Proposal & Specs:</h3>
-{INSERT PROPOSAL}
+
+
 
 <h3>Future Development:</h3>
 <ol>
 <li>Implement usage of Google Books API to allow users to create books from ISBN queries</li>
-<li>Further develop check-out functionality so user's can keep track of books they've loaned out</li> 
+<li>Further develop check-out and archive functionality so user's can keep track of books they've loaned out or removed from their library.</li> 
 </ol> 
 
 <h3>AI Disclosure</h3>

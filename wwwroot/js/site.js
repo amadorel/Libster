@@ -14,6 +14,7 @@ const fontUp = document.getElementById("fontUp");
       fontDown = document.getElementById("fontDown");
       fontReset = document.getElementById("fontReset");
       
+      //Hard-coded values to set limits (max, min, & default) for font changing
       fontMinimum = 12 //px units
       fontMaximum = 26; //in px units
       fontDefault = 16; //in px units 

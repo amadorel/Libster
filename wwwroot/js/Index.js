@@ -6,8 +6,9 @@ main();
 
 function main() { 
   const bookRepo = new BookAJAXRepository('Book/Catalog'); 
-  const mdom = new DOMManipulator(); 
+  const mdom = new DOMManipulator();
 
+  
   setUpEventHandlers(bookRepo); 
 }
 
