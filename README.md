@@ -10,7 +10,7 @@ Libster provides users (particularly the developer...) the ability to track thei
 Below are the initially set requirements and planned tech stack for Libster. Features highlighted in red are not currently implemented and are intended to be released with future updates. 
 <br />
 
-![ProjPlans](https://github.com/user-attachments/assets/c04f6e2f-cc2a-4235-b9a6-45993555c8c1)
+![ProjPlans](/ProjPlans.png) 
 
 <h3>Future Development:</h3>
 <ol>
