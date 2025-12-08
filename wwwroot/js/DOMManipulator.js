@@ -27,15 +27,15 @@ export class DOMManipulator {
     authorInput.type="text"; 
     authorInput.classList.add("form-control", "addAuthor"); 
     authorInput.name=`Authors[${authorIndex}].FullName`; 
-    authorInput.placeholder-"Author Name"; 
+    authorInput.placeholder="Author Name"; 
 
     const removeAuthorBtn = document.createElement("button"); 
-    removeAuthorBtn.type = button; 
+    removeAuthorBtn.type = "button"; 
     removeAuthorBtn.classList.add("btn", "btn-danger", "removeAuthor"); 
     removeAuthorBtn.textContent = "x"; 
 
-    authorContainer.appendChild(authorInput); 
-    authorContainer.appendChild(removeAuthorBtn); 
+    inputElement.appendChild(authorInput); 
+    inputElement.appendChild(removeAuthorBtn);
+    authorContainer.appendChild(inputElement); 
   }
-
 } //End of DOMManipulator class

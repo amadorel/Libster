@@ -9,6 +9,7 @@
 */
 
 
+//Constant variables for storing font changing buttons: fontUp, Down, & Reset
 const fontUp = document.getElementById("fontUp"); 
       fontDown = document.getElementById("fontDown");
       fontReset = document.getElementById("fontReset");
@@ -35,7 +36,7 @@ const fontUp = document.getElementById("fontUp");
         if (currentFontSize >= fontMinimum) {
           const newFontSize = currentFontSize - fontSizeChange;
           document.documentElement.style.fontSize = `${newFontSize}px`;
-        } else { //Default back to default size to avoid going too small
+        } else { //Revert back to default size to avoid going too small
           document.documentElement.style.fontSize = fontDefault + "px"
         }
       }); 

@@ -23,7 +23,7 @@ public class DbBookRepository : IBookRepository
   public async Task<Book> CreateAsync(Book newBook)
   {
     await _db.Books.AddAsync(newBook);
-    await _db.SaveChangesAsync();
+    await _db.SaveChangesAsync(); 
     return newBook;
   }
 

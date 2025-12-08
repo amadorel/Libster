@@ -1,5 +1,8 @@
 using LibsterFinalProj.Models.Entities; 
 
+/// <summary>
+/// Class to represent individual author's of books
+/// </summary>
 public class Author
 {
     public int Id {get; set;}

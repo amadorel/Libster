@@ -1,7 +1,7 @@
 using LibsterFinalProj.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 
-//Inheriting from IdentityUser to acccess built-in authentication properties and user attributes
+//Inheriting from IdentityUser to acccess built-in authentication properties and user attributes; represents individual users of application
 public class ApplicationUser : IdentityUser
 {
     public string FirstName {get; set;} = String.Empty;

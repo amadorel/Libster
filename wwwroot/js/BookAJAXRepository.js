@@ -25,8 +25,11 @@ export class BookAJAXRepository {
   async create(formData) {
     const address = `${this.#baseAddress}/create`;
     const response = await fetch(address, {
-      method: "post", 
-      body: formData
+      method: "post",
+      headers: {
+        'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify(formData)
     }); 
     if (response.ok === false) {
       throw new Error("There was an HTTP error creating the book data"); 
@@ -37,11 +40,14 @@ export class BookAJAXRepository {
     const address = `${this.#baseAddress}/update`;
     const response = await fetch(address, { 
       method: "put",
-      body: formData
+      headers: {
+        'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify(formData)
     });
     if (response.ok === false) {
       throw new Error("There was an HTTP error updating book data.");
-    } return await response.text(); 
+    } return await response.json(); 
   } 
 
   async delete(id) {

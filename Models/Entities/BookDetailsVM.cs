@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using LibsterFinalProj.Models.Entities; 
 
 /// <summary>
-/// View model with Book data that should be handled/interacted by forms
+/// View model with Book data that should be handled/interacted with through forms
 /// </summary>
 public class BookDetailsVM
 {

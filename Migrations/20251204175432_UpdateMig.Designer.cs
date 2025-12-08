@@ -3,6 +3,7 @@ using System;
 using LibsterFinalProj.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibsterFinalProj.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251204175432_UpdateMig")]
+    partial class UpdateMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.10");
@@ -153,9 +156,6 @@ namespace LibsterFinalProj.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("BookListId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("Genre")
                         .HasColumnType("INTEGER");
 
@@ -174,8 +174,6 @@ namespace LibsterFinalProj.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BookListId");
 
                     b.ToTable("Books");
                 });
@@ -330,15 +328,6 @@ namespace LibsterFinalProj.Migrations
                     b.Navigation("ListOwner");
                 });
 
-            modelBuilder.Entity("LibsterFinalProj.Models.Entities.Book", b =>
-                {
-                    b.HasOne("BookList", null)
-                        .WithMany("BooksInList")
-                        .HasForeignKey("BookListId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -388,11 +377,6 @@ namespace LibsterFinalProj.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("BookList", b =>
-                {
-                    b.Navigation("BooksInList");
                 });
 
             modelBuilder.Entity("LibsterFinalProj.Models.Entities.Book", b =>

@@ -40,7 +40,7 @@ public class BookController : Controller
 
   //Take this and process the creation of the books...remember you also need to handle API logic
   [HttpPost("create")]
-  public async Task<IActionResult> Create([FromForm] BookDetailsVM model) {
+  public async Task<IActionResult> Create([FromBody] BookDetailsVM model) {
     
         Book book = new Book
       {
@@ -79,7 +79,12 @@ public class BookController : Controller
     }
       catalogBookList.BooksInList.Add(book); //Add book to catalog upon successful creation  
 
-      //await _db.SaveChangesAsync();
-      return Ok(new { success = true, bookId = book.Id});
+      await _db.SaveChangesAsync(); //Final commit to database
+      return Json(new
+      {
+        success = true,
+        data = book, 
+        message="Book created successfully"
+      }); 
     }
 }

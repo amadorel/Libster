@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI; 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Dependency injection of repositories
 builder.Services.AddScoped<IApplicationUserRepository, DbApplicationUserRepository>(); 
 builder.Services.AddScoped<IBookRepository, DbBookRepository>();
 builder.Services.AddScoped<IBookListRepository, DbBookListRepository>();
@@ -23,7 +23,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite
 //Identity service 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
-
 builder.Services.AddRazorPages(); 
 
 var app = builder.Build();
@@ -50,6 +49,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();

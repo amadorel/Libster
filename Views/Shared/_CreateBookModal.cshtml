@@ -1,7 +1,6 @@
 @using LibsterFinalProj.Models.Entities
 @using LibsterFinalProj.Models 
-@using Microsoft.CodeAnalysis.Elfie.Diagnostics
-<!-- This will be pulled in by the Book Creation page to display a modal for creation 
+<!-- This will be pulled in by the Book Creation page to display a modal for creation at Books/Create
 Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/
 --> 
 <style> 
@@ -23,7 +22,7 @@ Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/
   }
 }
 
-
+<body>
 <div class="modal fade" id="createBookModal" tabindex="-1" aria-labelledby="createBookModalLabel"> 
   <div class="modal-dialog modal-lg"> 
     <div class="modal-content"> 
@@ -49,11 +48,10 @@ Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/
               </div>
               <div class="mb-3">
                 <label class="form-label">Authors</label>
-                <div id="addAuthorsContainer"> 
-
+                <div id="addAuthorsContainerInput"> 
                   <input type="text" name="Authors[0].FullName" class="form-control addAuthor" placeholder="Author Name"/> 
-                  <button type="button" class="btn btn-primary bi-plus-circle" id="addAuthorButton">Add Author</button>
                 </div>
+                 <button type="button" class="btn btn-primary bi-plus-circle" id="addAuthorButton">Add Author</button>
               </div>
               <div class="mb-3">
               <!--for genre--> 
@@ -73,13 +71,17 @@ Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/
                 <label class="form-label">ISBN</label>
                 <input type="text" class="form-control" id="ISBNInput" name="ISBN" /> 
               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary" id="saveBook">Add Book to Catalog</button>
+              </div>
           </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" id="saveBook">Add Book to Catalog</button>
-      </div>
-
     </div>
   </div>
 </div>
+@section Scripts {
+  <script defer type="module" src="~/js/DOMManipulator.js"></script>
+  <script defer type="module" src="~/js/Index.js"></script>
+}
+</body>
