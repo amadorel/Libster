@@ -17,6 +17,6 @@ public class Book
     //A book can have multiple authors 
     public ICollection<Author> Authors {get; set;} = new List<Author>();
     public Genre Genre {get; set;}
-    public int PublicationYear {get; set;} 
+    public int? PublicationYear {get; set;} 
     public string ISBN {get; set;} = "";
 }

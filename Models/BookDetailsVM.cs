@@ -9,7 +9,7 @@ public class BookDetailsVM
     [Required(ErrorMessage="Please enter a title!")]
     public string Title {get; set;} = ""; 
 
-    public List<AuthorInfoVM> Authors {get; set;} = new(); //This is nullable by design 
+    public List<AuthorInfoVM> Authors {get; set;} = new();
 
     [Required(ErrorMessage="Please select a genre.")]
     public Genre Genre {get; set;}
@@ -17,7 +17,7 @@ public class BookDetailsVM
     [Display(Name = "Publication Year")]
     [Required(ErrorMessage = "The publication year is required!")]
     [Range(0001, 2045, ErrorMessage="Year must be between 1 and 2045.")]
-    public int PublicationYear {get; set;}
+    public int? PublicationYear {get; set;} //Nullable for conversions 
 
     [Required(AllowEmptyStrings=true)]
     public string ISBN {get; set;} = "";

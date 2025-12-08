@@ -16,11 +16,11 @@ export class DOMManipulator {
     }
 
   static createAuthorForBookForm(authorIndex){ 
-    const authorContainer = document.getElementById("addAuthorsContainer");
+    const authorContainer = document.getElementById("addAuthorsContainerInput");
     
     //Element to store user input
     const inputElement = document.createElement("div"); 
-    inputElement.classList.add("authorInput mb-2"); 
+    inputElement.classList.add("authorInput", "mb-2"); 
 
     //User input to store 
     const authorInput = document.createElement("input"); 
@@ -33,6 +33,10 @@ export class DOMManipulator {
     removeAuthorBtn.type = "button"; 
     removeAuthorBtn.classList.add("btn", "btn-danger", "removeAuthor"); 
     removeAuthorBtn.textContent = "x"; 
+
+    removeAuthorBtn.addEventListener("click", (e) => {
+        e.target.closest('.authorInput').remove();
+    }); 
 
     inputElement.appendChild(authorInput); 
     inputElement.appendChild(removeAuthorBtn);

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using LibsterFinalProj.Models.Entities;
 using LibsterFinalProj.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 namespace LibsterFinalProj.Controllers; 
 
 public class BookController : Controller
@@ -37,6 +38,10 @@ public class BookController : Controller
   [HttpPost("create-book")]
   public async Task<IActionResult> Create([FromBody] BookDetailsVM model) {
     
+    if(!ModelState.IsValid) {
+        return BadRequest(ModelState); 
+    }
+
         Book book = new Book
       {
         Title = model.Title, 
@@ -44,6 +49,7 @@ public class BookController : Controller
         PublicationYear = model.PublicationYear, 
         ISBN = model.ISBN, 
         Authors = model.Authors
+            .Where(a => !string.IsNullOrWhiteSpace(a.FullName))
             .Select (a =>
             {
               var authorNameSplit = a.FullName.Trim().Split(' ', 2);
