@@ -8,7 +8,7 @@ Libster provides users (particularly the developer...) the ability to track thei
 
 <h3>Project Proposal & Specs:</h3>
 Below are the initially set requirements and planned tech stack for Libster. Features highlighted in red are not currently implemented and are intended to be released with future updates. 
-![Project Proposal Details](ProjPlans.png) 
+`![Project Proposal Details](ProjPlans.png)` 
 
 
 <h3>Future Development:</h3>
