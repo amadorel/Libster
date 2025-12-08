@@ -3,6 +3,12 @@
 @{
   ViewData[index: "Title"] = "Book Lists"; 
 }
+<style>
+  #booklistContainer{
+    background-color: lightcyan;
+    color: black; 
+  }
+</style>
 @await Html.PartialAsync("_CreateBookListModal")
 <!-- If user is not logged in, direct them to register or login to view booklists--> 
 @if (!User.Identity?.IsAuthenticated ?? true) {
@@ -11,7 +17,18 @@
       Please <a asp-area="Identity" asp-page="/Account/Register">register</a> for an account or <a asp-area="Identity" asp-page="/Account/Login"> login</a> to view your book lists!
   </p>
 } else { <!-- Continue below with logic to view user booklists -->
-
+  //TODO: Logic to flesh out here-- if userbooklists = 0, don't display booklists as seen below
   <h1> 📖~☆ Your Book Lists ☆~📖 </h1> 
-  //Utilize BooklistVM to loop through user booklists, include a check to make sure booklists belong to the user
+  <p>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#createBookListModal">Create New</a>
+  </p>
+  //1. Utilize BooklistVM to loop through user booklists, include a check to make sure booklists belong to the user
+  //NOTE to Roach/reviewer: Below is an exmple container for the Catalog booklist (unfortunately, at this point there is not much more I can do) -- the overarching goal would be to implement what is seen in comment 1 above so user's can view all of their lists in one place. The data in the container below is mostly mock data. This block would repeat for each BookList a user has. 
+  <div id="booklistContainer" class="container-sm rounded-3"> 
+    <a href=/Book/Catalog>Catalog</a> <!-- representative of BookList.ListTitle & BookListType.Catalog; will eventually have a link to BookList/Id --> 
+    <p>Description: Default list for all of your books!<br /><!--Representative of BookList.ListDescription--> 
+    Number of Books: xx</p> <!-- Representative of BookList.BooksInList.Count() -->
+  </div>
+
+  
 }

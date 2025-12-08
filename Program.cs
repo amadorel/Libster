@@ -13,7 +13,6 @@ builder.Services.AddScoped<IApplicationUserRepository, DbApplicationUserReposito
 builder.Services.AddScoped<IBookRepository, DbBookRepository>();
 builder.Services.AddScoped<IBookListRepository, DbBookListRepository>();
 
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(

@@ -8,5 +8,4 @@ public class ApplicationUser : IdentityUser
     public string LastName {get; set;} = String.Empty;
     public byte[]? ProfilePicture {get; set;} 
     public List<BookList> UserBookLists = new List<BookList>();
-
 }

@@ -1,14 +1,47 @@
 @using LibsterFinalProj.Models.Entities;
-@using LibsterFinalProj.Models; 
-@using Microsoft.CodeAnalysis.Scripting
+@using LibsterFinalProj.Models;
 <!-- This will be pulled in by the Book List page page to display a modal for creation of custom lists
-Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/
+Source for modal set-up: https://getbootstrap.com/docs/5.3/components/modal/ -- currently a mock-up more than anything
 --> 
 
-<body> 
+<style> 
+</style>
 
-
-</body>
-@section Scripts {
-
+@functions {
+  
 }
+
+<body>
+<div class="modal fade" id="createBookListModal" tabindex="-1" aria-labelledby="createBookListModalLabel"> 
+  <div class="modal-dialog modal-lg"> 
+    <div class="modal-content"> 
+
+      <div class="modal-header"> 
+        <h4 class="modal-title">Create Book List</h4> 
+      </div>
+      <div class="modal-body">
+          <!-- Manual entry : any list created by this form will have a BookListType of 3 (Custom); BookListType.Custom --> 
+          <h5><strong>IN DEVELOPMENT</strong> - Form is NOT operative, for display only </h5>
+          <form id="createBookListForm">
+              <div class="mb-3"> 
+                <label class="form-label">Book List Title</label>
+                <input type="text" class="form-control" id="bookTitle" name="ListTitle" /> 
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-control" id="listDesc" name="ListDescription" /> 
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary" id="saveList">Create Book List</button>
+              </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+@section Scripts {
+  <script defer type="module" src="~/js/DOMManipulator.js"></script>
+  <script defer type="module" src="~/js/Index.js"></script>
+}
+</body>
