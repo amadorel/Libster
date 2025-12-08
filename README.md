@@ -14,6 +14,7 @@ Below are the initially set requirements and planned tech stack for Libster. Fea
 
 <h3>Future Development:</h3>
 <ol>
+<li>Further implement book editing (we can dream...)</li>
 <li>Implement usage of Google Books API to allow users to create books from ISBN queries</li>
 <li>Further develop check-out and archive functionality so user's can keep track of books they've loaned out or removed from their library.</li> 
 </ol> 
